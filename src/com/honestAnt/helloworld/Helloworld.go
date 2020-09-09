@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+/*
+https://studygolang.com/articles/11755
+*/
 func main() {
 	fmt.Println("helloworld")
 	test1("test")

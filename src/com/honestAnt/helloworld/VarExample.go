@@ -5,6 +5,9 @@ import (
 	"math"
 )
 
+/*
+https://studygolang.com/articles/11756
+*/
 func main() {
 	var age int //声明变量
 	fmt.Println("age is ", age)
