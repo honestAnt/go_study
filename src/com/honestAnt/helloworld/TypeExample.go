@@ -19,7 +19,12 @@ bool
 string
 */
 func main() {
-
+	booleanTest()
+	intTest()
+	floatTest()
+	complexTest()
+	stringTest()
+	typeConvertTest()
 }
 
 func booleanTest() {
@@ -133,8 +138,7 @@ func typeConvertTest() {
 	sum2 := h + j
 	//fmt.Println("sum", sum)
 	fmt.Println("sum2 ", sum2)
-}
-
-func uintTest() {
-
+	i := 10
+	var j2 float64 = float64(i)
+	fmt.Println("j2 ", j2)
 }
