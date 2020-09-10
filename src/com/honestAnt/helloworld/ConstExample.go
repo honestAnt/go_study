@@ -5,7 +5,10 @@ import (
 	"math"
 )
 
-/*https://studygolang.com/articles/11872*/
+/*
+https://studygolang.com/articles/11872
+在 Go 语言中，术语"常量"用于表示固定的值。比如 5 、-89、 I love Go、67.89 等等。
+*/
 func main() {
 	const a = 55
 	//a = 89 //不允许重新赋值
