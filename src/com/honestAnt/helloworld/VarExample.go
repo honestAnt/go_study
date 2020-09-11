@@ -56,5 +56,5 @@ func main() {
 
 	age6 := 29 //age是int类型
 	//age4 = "test" //错误，尝试复制一个字符串给int类型变量
-	fmt.Println("age5 is ", age6)
+	fmt.Println("age6 is ", age6)
 }

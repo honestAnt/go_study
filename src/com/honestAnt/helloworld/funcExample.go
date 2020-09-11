@@ -21,6 +21,13 @@ func main() {
 	bill := calculateBill(10, 5)
 	bill2 := calculateBill2(10, 5)
 	fmt.Println("bill", bill, "bill2 ", bill2)
+	area, perimeter := rectProps(10.8, 5.6)
+	fmt.Println("area ", area, " perimeter ", perimeter)
+	area2, perimeter2 := rectPropsName(1.2, 1.5)
+	fmt.Println("area2 ", area2, "perimeter2 ", perimeter2)
+	//空白符 _ 在 Go 中被用作空白符，可以用作表示任何类型的任何值。
+	area3, _ := rectPropsName(1.5, 2.5) //周长(perimeter)被丢弃了
+	fmt.Println("area3 ", area3)
 }
 
 func calculateBill(price int, no int) int {
@@ -36,6 +43,15 @@ func calculateBill2(price, no int) int {
 
 //多返回值
 
-func rectProps(legth, width float64) (float64, float64) {
+func rectProps(length, width float64) (float64, float64) {
+	var area = length * width
+	var perimeter = (length + width) * 2
+	return area, perimeter
+}
 
+//命名多返回值
+func rectPropsName(length, width float64) (area, perimeter float64) {
+	area = length * width
+	perimeter = (width + length) * 2
+	return //不需要 明确指定返回值，默认返回area，permeter的值
 }
