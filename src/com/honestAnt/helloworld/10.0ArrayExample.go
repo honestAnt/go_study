@@ -13,6 +13,8 @@ func main() {
 	arrayTest3()
 	arrayTest4()
 	arrayTest5()
+	arrayRange()
+	arrayMultiDimTest()
 }
 
 func arrayTest1() {
@@ -63,4 +65,48 @@ func arrayTest5() {
 func arrayChangeLocal(num [5]int) {
 	num[0] = 55
 	fmt.Println("inside function ", num)
+}
+
+//使用range迭代数组
+func arrayRange() {
+	a := [...]float64{67.7, 89.8, 21, 78}
+	for i := 0; i < len(a); i++ {
+		fmt.Printf("%d th element of a is %.2f\n", i, a[i])
+	}
+	//range
+	sum := float64(0)
+	for i, v := range a { //range returns both the index and value
+		fmt.Printf("%d the element of a is %.2f\n", i, v)
+		sum += v
+	}
+	fmt.Println("sum of all elements of a", sum)
+}
+
+//多维数组
+func printarray(a [3][2]string) {
+	for _, v1 := range a { //_表示忽略index
+		for _, v2 := range v1 {
+			fmt.Printf("%s ", v2)
+		}
+		fmt.Printf("\n")
+	}
+}
+
+//100 行末尾的逗号是必需的。这是因为根据 Go 语言的规则自动插入分号。至于为什么这是必要的，如果你想了解更多，请阅读https://golang.org/doc/effective_go.html#semicolons。
+func arrayMultiDimTest() {
+	a := [3][2]string{
+		{"lion", "tiger"},
+		{"cat", "dog"},
+		{"pigeon", "peacock"}, // this comma is necessary. The compiler will complain if you omit this comma
+	}
+	printarray(a)
+	var b [3][2]string
+	b[0][0] = "apple"
+	b[0][1] = "samsung"
+	b[1][0] = "microsoft"
+	b[1][1] = "google"
+	b[2][0] = "AT&T"
+	b[2][1] = "T-Mobile"
+	fmt.Printf("\n")
+	printarray(b)
 }
