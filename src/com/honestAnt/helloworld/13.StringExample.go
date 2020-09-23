@@ -11,7 +11,13 @@ Go 语言中的字符串是一个字节切片。把内容放在双引号""之间
 */
 
 func main() {
-
+	stringTest1()
+	stringTest2()
+	stringTest3()
+	stringTest4()
+	stringTest5()
+	stringTest6()
+	stringTest7()
 }
 
 func stringTest1() {
