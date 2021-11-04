@@ -8,13 +8,16 @@ import (
 	"os"
 )
 
+//https://draveness.me/golang/docs/part4-advanced/ch09-stdlib/golang-json/
+
 type Persons struct {
 	Persons []Emp `json:"person"`
 }
 
 type Emp struct {
-	Name string `json:"name"`
-	Code string `json:"code"`
+	Name  string `json:"name"`
+	Code  string `json:"code"`
+	Email string `json:"cpsnemail"`
 }
 
 func convert2Json() {
@@ -31,7 +34,7 @@ func convert2Json() {
 }
 
 func parseJson() {
-	jsonFile, err := os.Open("src/data/person.json")
+	jsonFile, err := os.Open("src/data/test.json")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -53,13 +56,16 @@ func write2Excel(persons Persons) {
 	index := f.NewSheet(sheetName)
 	f.SetCellValue(sheetName, "A1", "name")
 	f.SetCellValue(sheetName, "B1", "code")
+	f.SetCellValue(sheetName, "C1", "email")
 
 	for i, v := range persons.Persons {
 		axis := fmt.Sprintf("A%d", i+2)
 		axis2 := fmt.Sprintf("B%d", i+2)
-		fmt.Println("第%s 行 name  %s，code %s", axis, v.Name, v.Code)
+		axis3 := fmt.Sprintf("C%d", i+2)
+		fmt.Println("第%s 行 name  %s，code %s, email %s", axis, v.Name, v.Code, v.Email)
 		f.SetCellValue(sheetName, axis, v.Name)
 		f.SetCellValue(sheetName, axis2, v.Code)
+		f.SetCellValue(sheetName, axis3, v.Email)
 	}
 	f.SetActiveSheet(index)
 	if err := f.SaveAs("src/data/person.xlsx"); err != nil {
